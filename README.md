@@ -54,6 +54,44 @@ For All Users (Start-ups, Mentors, and Engineers):
 
 ---
 
+## Front-end Routes
+
+-   Home Page:
+
+    -   Route: `/`
+    -   This page serves as the entry point to your application. It can provide an overview of the platform, highlight featured projects, and encourage users to sign up or log in.
+
+-   Project Listings Page:
+
+    -   Route: `/projects`
+    -   This page displays a list of project listings created by start-ups. Each listing should include essential details like project title, description, required tech stack, and duration. Users can browse and filter the listings based on their interests and skills.
+
+-   Project Details Page:
+
+    -   Route: `/projects/{projectId}`
+    -   When users click on a specific project from the project listings, they should be directed to a page that shows the detailed information about that project. This page should include additional details like the GitHub repository link, the status of the project (e.g., open, closed, in progress), and any other relevant information.
+
+-   Project Request Page:
+
+    -   Route: `/projects/{projectId}/request`
+    -   Projects that are currently open should have an option to be requested.
+
+-   Request Management Page:
+
+    -   Route: `/requests`
+    -   This page is specifically designed for start-ups to manage incoming requests from mentor-junior engineer pairs who are interested in working on their projects. Start-ups can review the requests, accept or reject them based on skills and qualifications, and communicate with the selected pairs.
+
+-   User Profile Page:
+
+    -   Route: `/user/{userId}`
+    -   Each user (start-up, mentor, or engineer) should have their own profile page. This page should display their name, bio, skills, past projects, average rating, and reviews received. Users can update their profile information and manage their project listings or requests from this page.
+
+-   Notifications Page:
+    -   Route: `/user/notifications`
+    -   This page displays notifications for users, informing them about project updates, request status changes, and new messages. It helps users stay updated on their ongoing collaborations and project activities.
+
+---
+
 ## Data Model
 
 The data model for CrowdCode includes the following entities:
