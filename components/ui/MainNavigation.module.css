@@ -1,0 +1,39 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	background-color: #f5f5dc;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logoText {
+	font-size: 24px;
+	font-weight: bold;
+	color: rgb(var(--foreground-rgb));
+}
+
+.menu ul {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu li {
+	margin-right: 10px;
+}
+
+.menu a {
+	color: rgb(var(--foreground-rgb));
+	opacity: 75%;
+	padding: 5px;
+}
+
+.menu a:hover {
+	color: rgb(var(--foreground-rgb));
+	opacity: 100%;
+}

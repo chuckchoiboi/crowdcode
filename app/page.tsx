@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import styles from './page.module.css';
+import { Fragment } from 'react';
 
 export default function Home() {
 	return (
-		<main className={styles.main}>
-			<h1>Home Page</h1>
-		</main>
+		<Fragment>
+			<section>Hero Banner</section>
+			<section>Project Listing</section>
+		</Fragment>
 	);
 }
