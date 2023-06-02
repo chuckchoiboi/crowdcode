@@ -47,10 +47,10 @@ For All Users (Start-ups, Mentors, and Engineers):
 
 ## Tech Stack
 
--   Front-end: Next.js (React framework), HTML, CSS, JavaScript
+-   Front-end: Next.js (React framework), HTML, CSS, TypeScript
 -   Back-end: Node.js, Express.js
 -   Database: MongoDB
--   Authentication: JWT (JSON Web Tokens)
+-   Authentication: OAuth 2.0
 
 ---
 
@@ -64,7 +64,8 @@ The data model for CrowdCode includes the following entities:
     -   User ID (unique identifier)
     -   Name
     -   Email
-    -   Password (encrypted)
+    -   OAuth Provider
+    -   OAuth ID
     -   Bio (brief description of the user's background, skills, and interests)
     -   Role (either "start-up" or "engineer")
     -   Skills (a list of programming languages, frameworks, or other relevant skills)
@@ -84,9 +85,7 @@ The data model for CrowdCode includes the following entities:
     -   Tech Stack (programming languages, frameworks, etc., required for the project)
     -   Duration (estimated duration of the project)
     -   GitHub Repository (link to the project's GitHub repository)
-    -   Status (e.g., "
-
-in progress," "completed," "closed")
+    -   Status (e.g., "open," "in progress," "closed")
 
 ### Request Model
 
@@ -100,8 +99,6 @@ in progress," "completed," "closed")
     -   One request belongs to one project
     -   One request belongs to one mentor
     -   One request belongs to one junior engineer
-
-These data models provide a foundation for building the app and managing the core entities involved, such as users, projects, requests, and mentors. Remember, you can further expand and refine these models based on additional features and requirements of your app.
 
 ---
 
