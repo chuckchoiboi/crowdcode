@@ -1,26 +1,25 @@
-import Link from 'next/link';
-import styles from './MainNavigation.module.css';
+import React from 'react';
+import { Flex, Link } from '@chakra-ui/react';
 
 const MainNavigation = () => {
 	return (
-		<header className={styles.header}>
-			<Link className={styles.logo} href="/">
-				<span className={styles.logoText}>CrowdCode</span>
+		<Flex justifyContent="space-between" alignItems="center" p={4}>
+			<Link href="/" fontWeight="bold" fontSize="24px">
+				CrowdCode
 			</Link>
-			<nav className={styles.menu}>
-				<ul>
-					<li>
-						<a href="#">Projects</a>
-					</li>
-					<li>
-						<a href="#">Requests</a>
-					</li>
-					<li>
-						<a href="#">Profile</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
+			<Flex as="nav" ml={4}>
+				<Link href="#" mr={4} opacity={0.75} _hover={{ opacity: 1 }}>
+					Projects
+				</Link>
+				<Link href="#" mr={4} opacity={0.75} _hover={{ opacity: 1 }}>
+					Requests
+				</Link>
+				<Link href="#" opacity={0.75} _hover={{ opacity: 1 }}>
+					Profile
+				</Link>
+			</Flex>
+		</Flex>
 	);
 };
+
 export default MainNavigation;

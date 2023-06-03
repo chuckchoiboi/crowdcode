@@ -1,6 +1,4 @@
-'use client';
-
-import { SimpleGrid } from '@chakra-ui/react';
+import { SimpleGrid, Spinner, Flex } from '@chakra-ui/react';
 import { getLatestProjectsByNumber } from '../../dummy-data/dummy-data';
 
 import ProjectCard from '../ui/ProjectCard/ProjectCard';
@@ -14,9 +12,21 @@ const ProjectListing: React.FC = () => {
 			spacing={4}
 			templateColumns="repeat(auto-fill, minmax(1060px, 1fr))"
 		>
-			{projects.map((project) => (
-				<ProjectCard key={project.id} project={project} />
-			))}
+			{projects ? (
+				projects.map((project) => (
+					<ProjectCard key={project.id} project={project} />
+				))
+			) : (
+				<Flex justify="center" align="center">
+					<Spinner
+						thickness="4px"
+						speed="0.65s"
+						emptyColor="gray.200"
+						color="blue.500"
+						size="xl"
+					/>
+				</Flex>
+			)}
 		</SimpleGrid>
 	);
 };
