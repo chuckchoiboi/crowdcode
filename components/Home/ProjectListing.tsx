@@ -1,7 +1,7 @@
 import { SimpleGrid, Spinner, Flex } from '@chakra-ui/react';
 import { getLatestProjectsByNumber } from '../../dummy-data/dummy-data';
 
-import ProjectCard from '../ui/ProjectCard/ProjectCard';
+import ProjectCard from './ProjectCard/ProjectCard';
 
 const ProjectListing: React.FC = () => {
 	const projects = getLatestProjectsByNumber(5);

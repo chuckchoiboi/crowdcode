@@ -1,8 +1,8 @@
 'use client';
 
 import { Fragment } from 'react';
-import HeroBanner from '@/components/Home/HeroBanner';
-import ProjectListing from '@/components/Home/ProjectListing';
+import HeroBanner from '@/components/home/HeroBanner';
+import ProjectListing from '@/components/home/ProjectListing';
 
 export default function Home() {
 	return (

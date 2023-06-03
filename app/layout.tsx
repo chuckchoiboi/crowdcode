@@ -1,7 +1,7 @@
 'use client';
 import { ChakraProvider } from '@chakra-ui/react';
 
-import MainNavigation from '@/components/ui/MainNavigation';
+import MainNavigation from '@/components/common-ui/MainNavigation';
 
 import './globals.css';
 
