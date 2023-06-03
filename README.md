@@ -121,6 +121,7 @@ The data model for CrowdCode includes the following entities:
     -   Title
     -   Description
     -   Tech Stack (programming languages, frameworks, etc., required for the project)
+    -   Project Owner ID
     -   Duration (estimated duration of the project)
     -   GitHub Repository (link to the project's GitHub repository)
     -   Status (e.g., "open," "in progress," "closed")

@@ -1,5 +1,9 @@
-import './globals.css';
+'use client';
+import { ChakraProvider } from '@chakra-ui/react';
+
 import MainNavigation from '@/components/ui/MainNavigation';
+
+import './globals.css';
 
 export default function RootLayout({
 	children,
@@ -9,8 +13,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<MainNavigation />
-				<main className="main">{children}</main>
+				<ChakraProvider>
+					<MainNavigation />
+					<main className="main">{children}</main>
+				</ChakraProvider>
 			</body>
 		</html>
 	);
