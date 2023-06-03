@@ -1,12 +1,12 @@
 'use client';
 
 import { SimpleGrid } from '@chakra-ui/react';
-import { getAllProjects } from '../../dummy-data/dummy-data';
+import { getLatestProjectsByNumber } from '../../dummy-data/dummy-data';
 
 import ProjectCard from '../ui/ProjectCard/ProjectCard';
 
 const ProjectListing: React.FC = () => {
-	const projects = getAllProjects();
+	const projects = getLatestProjectsByNumber(5);
 
 	return (
 		<SimpleGrid

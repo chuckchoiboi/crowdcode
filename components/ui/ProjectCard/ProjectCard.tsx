@@ -19,6 +19,7 @@ interface Project {
 	createDate: string;
 	techStacks: string[];
 	productArea: string[];
+	companyName: string;
 }
 
 interface ProjectCardProps {
@@ -37,9 +38,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 					<Heading size="lg" mb={2}>
 						{project.title}
 					</Heading>
-					<Text fontSize="sm" color="gray.500">
-						Created on: {project.createDate}
-					</Text>
+					<Flex direction="column" alignItems="flex-end">
+						<Text fontSize="lg" fontWeight="bold" color="gray.700">
+							{project.companyName}{' '}
+						</Text>
+						<Text fontSize="sm" color="gray.500">
+							{project.createDate}
+						</Text>
+					</Flex>
 				</CardHeader>
 				<CardBody>
 					<Text mt={0} mb={4}>
