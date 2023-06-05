@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 
-import HeroBanner from '@/components/common-ui/HeroBanner';
+import ButtonHeroBanner from '@/components/common-ui/ButtonHeroBanner';
 
 import { getBannerImageUrl } from '@/utils/helper';
 
@@ -10,17 +10,17 @@ type RequestsPageProps = {};
 const RequestsPage = (props: RequestsPageProps) => {
 	const pathname = usePathname();
 
-	const headingText = 'Manage project requests';
+	const headingText = 'Requests';
 	const secondaryText =
 		"Here's a list of developers who want to help you out!";
 	const imageUrl = getBannerImageUrl(pathname);
 
 	return (
 		<div>
-			<HeroBanner
+			<ButtonHeroBanner
 				headingText={headingText}
 				secondaryText={secondaryText}
-				imageUrl={imageUrl}
+				bannerImageUrl={imageUrl}
 			/>
 		</div>
 	);

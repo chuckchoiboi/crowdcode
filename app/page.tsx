@@ -3,7 +3,7 @@
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
 
-import HeroBanner from '@/components/common-ui/HeroBanner';
+import SearchHeroBanner from '@/components/common-ui/SearchHeroBanner';
 import ProjectListing from '@/components/home/ProjectListing';
 
 import { getBannerImageUrl } from '@/utils/helper';
@@ -20,10 +20,10 @@ export default function Home(props: HomePageProps) {
 
 	return (
 		<Fragment>
-			<HeroBanner
+			<SearchHeroBanner
 				headingText={headingText}
 				secondaryText={secondaryText}
-				imageUrl={imageUrl}
+				bannerImageUrl={imageUrl}
 			/>
 			<ProjectListing />
 		</Fragment>

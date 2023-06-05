@@ -3,28 +3,29 @@ import {
 	Box,
 	Flex,
 	Input,
-	InputGroup,
-	InputRightElement,
 	IconButton,
 	Heading,
 	Text,
+	Button,
 } from '@chakra-ui/react';
 import { FaSearch } from 'react-icons/fa';
 
-type HeroBannerProps = {
+type ButtonHeroBannerProps = {
 	headingText: string;
 	secondaryText: string;
-	imageUrl?: string;
+	bannerImageUrl?: string;
+	buttonText?: string;
 };
 
-const HeroBanner = ({
+const ButtonHeroBanner = ({
 	headingText,
 	secondaryText,
-	imageUrl = '/images/-banner.jpg',
-}: HeroBannerProps) => {
+	bannerImageUrl = '/images/-banner.jpg',
+	buttonText,
+}: ButtonHeroBannerProps) => {
 	return (
 		<Box
-			bgImage={imageUrl}
+			bgImage={bannerImageUrl}
 			bgSize="cover"
 			bgPosition="center"
 			minHeight="300px"
@@ -59,34 +60,17 @@ const HeroBanner = ({
 				<Text fontSize="lg" mt={4}>
 					{secondaryText}
 				</Text>
-				<Box mt={10} id="search-bar" width="100%">
-					<Flex
-						justifyContent="flex-start"
-						alignItems="center"
-						mx="auto"
-					>
-						<InputGroup size="md" width="100%">
-							<Input
-								type="text"
-								placeholder="Search..."
-								boxShadow="0px 0px 4px rgba(0, 0, 0, 0.1)"
-								bg="#fff"
-								color="black"
-							/>
-							<InputRightElement ml={-2}>
-								<IconButton
-									colorScheme="blue"
-									aria-label="Search"
-									icon={<FaSearch />}
-									h="full"
-								/>
-							</InputRightElement>
-						</InputGroup>
-					</Flex>
-				</Box>
+
+				{buttonText ? (
+					<Box mt={10}>
+						<Button size="lg" colorScheme="gray">
+							{buttonText}
+						</Button>
+					</Box>
+				) : null}
 			</Flex>
 		</Box>
 	);
 };
 
-export default HeroBanner;
+export default ButtonHeroBanner;
