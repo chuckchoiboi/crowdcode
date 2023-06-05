@@ -1,5 +1,5 @@
 'use client';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 import MainNavigation from '@/components/common-ui/MainNavigation';
 
@@ -10,10 +10,17 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	const theme = extendTheme({
+		fonts: {
+			body: 'Monospace, sans-serif',
+			heading: 'Monospace, sans-serif',
+		},
+	});
+
 	return (
 		<html lang="en">
 			<body>
-				<ChakraProvider>
+				<ChakraProvider theme={theme}>
 					<MainNavigation />
 					<main className="main">{children}</main>
 				</ChakraProvider>

@@ -3,14 +3,14 @@ import { Flex, Link } from '@chakra-ui/react';
 
 const MainNavigation = () => {
 	return (
-		<Flex
-			justifyContent="space-between"
-			alignItems="center"
-			p={4}
-			bg={'#fff'}
-		>
-			<Link href="/" fontWeight="bold" fontSize="24px">
-				CrowdCode
+		<Flex justifyContent="space-between" alignItems="center" p={4}>
+			<Link
+				href="/"
+				fontWeight="bold"
+				fontSize="24px"
+				fontFamily="Monospace"
+			>
+				crowdCode
 			</Link>
 			<Flex as="nav" ml={4}>
 				<Link

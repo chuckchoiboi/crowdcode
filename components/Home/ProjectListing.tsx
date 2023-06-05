@@ -7,11 +7,7 @@ const ProjectListing: React.FC = () => {
 	const projects = getLatestProjectsByNumber(5);
 
 	return (
-		<SimpleGrid
-			m={10}
-			spacing={4}
-			templateColumns="repeat(auto-fill, minmax(1060px, 1fr))"
-		>
+		<SimpleGrid m={10} spacing={4} templateColumns="repeat(auto-fill)">
 			{projects ? (
 				projects.map((project) => (
 					<ProjectCard key={project.id} project={project} />
