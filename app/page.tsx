@@ -1,13 +1,30 @@
 'use client';
 
 import { Fragment } from 'react';
-import HeroBanner from '@/components/home/HeroBanner';
+import { usePathname } from 'next/navigation';
+
+import HeroBanner from '@/components/common-ui/HeroBanner';
 import ProjectListing from '@/components/home/ProjectListing';
 
-export default function Home() {
+import { getBannerImageUrl } from '@/utils/helper';
+
+type HomePageProps = {};
+
+export default function Home(props: HomePageProps) {
+	const pathname = usePathname();
+
+	const headingText = 'Search a project';
+	const secondaryText =
+		'Find a project that fits your specialty. Bring magic to a business owner!';
+	const imageUrl = getBannerImageUrl(pathname);
+
 	return (
 		<Fragment>
-			<HeroBanner />
+			<HeroBanner
+				headingText={headingText}
+				secondaryText={secondaryText}
+				imageUrl={imageUrl}
+			/>
 			<ProjectListing />
 		</Fragment>
 	);

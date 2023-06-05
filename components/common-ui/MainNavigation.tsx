@@ -21,7 +21,12 @@ const MainNavigation = () => {
 				>
 					Projects
 				</Link>
-				<Link href="#" mr={4} opacity={0.75} _hover={{ opacity: 1 }}>
+				<Link
+					href="/requests"
+					mr={4}
+					opacity={0.75}
+					_hover={{ opacity: 1 }}
+				>
 					Requests
 				</Link>
 				<Link href="#" opacity={0.75} _hover={{ opacity: 1 }}>
