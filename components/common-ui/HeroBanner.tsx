@@ -1,5 +1,15 @@
 import React from 'react';
-import { Box, Flex, Input, Button, Heading, Text } from '@chakra-ui/react';
+import {
+	Box,
+	Flex,
+	Input,
+	InputGroup,
+	InputRightElement,
+	IconButton,
+	Heading,
+	Text,
+} from '@chakra-ui/react';
+import { FaSearch } from 'react-icons/fa';
 
 type HeroBannerProps = {
 	headingText: string;
@@ -34,12 +44,14 @@ const HeroBanner = ({
 			<Flex
 				flexDirection="column"
 				justifyContent="center"
-				alignItems="center"
-				textAlign="center"
+				alignItems="flex-start"
+				textAlign="left"
 				color="#fff"
 				position="relative"
 				height="100%"
 				px={4}
+				maxWidth="1000px"
+				m="auto"
 			>
 				<Heading as="h1" size="xl" mt={8}>
 					{headingText}
@@ -47,23 +59,29 @@ const HeroBanner = ({
 				<Text fontSize="lg" mt={4}>
 					{secondaryText}
 				</Text>
-				<Box mt={10} id="search-bar" width="100%" zIndex={2}>
+				<Box mt={10} id="search-bar" width="100%">
 					<Flex
-						justifyContent="center"
+						justifyContent="flex-start"
 						alignItems="center"
-						maxWidth="800px"
 						mx="auto"
 					>
-						<Input
-							type="text"
-							placeholder="Search..."
-							size="md"
-							mr={2}
-							flex="1"
-							boxShadow="0px 0px 4px rgba(0, 0, 0, 0.1)"
-							bg="#fff"
-						/>
-						<Button colorScheme="blue">Search</Button>
+						<InputGroup size="md" width="100%">
+							<Input
+								type="text"
+								placeholder="Search..."
+								boxShadow="0px 0px 4px rgba(0, 0, 0, 0.1)"
+								bg="#fff"
+								color="black"
+							/>
+							<InputRightElement ml={-2}>
+								<IconButton
+									colorScheme="blue"
+									aria-label="Search"
+									icon={<FaSearch />}
+									h="full"
+								/>
+							</InputRightElement>
+						</InputGroup>
 					</Flex>
 				</Box>
 			</Flex>

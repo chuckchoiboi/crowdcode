@@ -9,6 +9,7 @@ const MainNavigation = () => {
 				fontWeight="bold"
 				fontSize="24px"
 				fontFamily="Monospace"
+				_hover={{ textDecoration: 'none' }}
 			>
 				crowdCode
 			</Link>
