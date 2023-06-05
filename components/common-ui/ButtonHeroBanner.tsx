@@ -1,28 +1,31 @@
 import React from 'react';
-import {
-	Box,
-	Flex,
-	Input,
-	IconButton,
-	Heading,
-	Text,
-	Button,
-} from '@chakra-ui/react';
-import { FaSearch } from 'react-icons/fa';
+import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
+import { useRouter } from 'next/navigation';
 
 type ButtonHeroBannerProps = {
 	headingText: string;
 	secondaryText: string;
 	bannerImageUrl?: string;
-	buttonText?: string;
+	buttonProp?: {
+		text: string;
+		link: string;
+	};
 };
 
 const ButtonHeroBanner = ({
 	headingText,
 	secondaryText,
 	bannerImageUrl = '/images/-banner.jpg',
-	buttonText,
+	buttonProp,
 }: ButtonHeroBannerProps) => {
+	const router = useRouter();
+
+	const handleButtonClick = () => {
+		if (buttonProp && buttonProp.link) {
+			router.push(buttonProp.link);
+		}
+	};
+
 	return (
 		<Box
 			bgImage={bannerImageUrl}
@@ -61,10 +64,14 @@ const ButtonHeroBanner = ({
 					{secondaryText}
 				</Text>
 
-				{buttonText ? (
+				{buttonProp ? (
 					<Box mt={10}>
-						<Button size="lg" colorScheme="gray">
-							{buttonText}
+						<Button
+							size="lg"
+							colorScheme="gray"
+							onClick={handleButtonClick}
+						>
+							{buttonProp.text}
 						</Button>
 					</Box>
 				) : null}

@@ -16,7 +16,10 @@ const ProjectsPage = (props: ProjectsPageProps) => {
 	const secondaryText =
 		'Are you looking for a developer to help with your project?';
 	const imageUrl = getBannerImageUrl(pathname);
-	const buttonText = 'Create a project';
+	const buttonProp = {
+		text: 'Create a project',
+		link: 'projects/create',
+	};
 
 	const projects = getLatestProjectsByNumber(10);
 
@@ -27,7 +30,7 @@ const ProjectsPage = (props: ProjectsPageProps) => {
 				headingText={headingText}
 				secondaryText={secondaryText}
 				bannerImageUrl={imageUrl}
-				buttonText={buttonText}
+				buttonProp={buttonProp}
 			/>
 			<ProjectsTable projects={projects} />
 		</div>

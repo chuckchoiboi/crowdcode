@@ -13,6 +13,7 @@ const ProjectsTable = ({ projects }: ProjectsTableProps) => {
 		key: keyof Project;
 		direction: 'asc' | 'desc';
 	}>({
+		// @ts-expect-error initial value
 		key: '',
 		direction: 'asc',
 	});
