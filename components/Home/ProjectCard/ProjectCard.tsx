@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import TechStackButton from './TechStackButton';
 import ProductAreaButton from './ProductAreaButton';
+import Link from 'next/link';
 
 interface Project {
 	id: string;
@@ -63,9 +64,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 					</Flex>
 				</CardBody>
 				<CardFooter>
-					<Button colorScheme="blue" size="sm">
-						View here
-					</Button>
+					<Link href={`/projects/${project.id}`}>
+						<Button colorScheme="blue" size="sm">
+							View here
+						</Button>
+					</Link>
 				</CardFooter>
 			</Flex>
 			<Box bg="gray.100" width="20%" height="100%" />
