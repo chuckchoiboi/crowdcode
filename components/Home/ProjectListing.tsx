@@ -1,18 +1,31 @@
+import { useEffect, useState } from 'react';
 import { SimpleGrid, Spinner, Flex } from '@chakra-ui/react';
-import { getLatestProjectsByNumber } from '../../dummy-data/dummy-data';
-
 import ProjectCard from './ProjectCard/ProjectCard';
+import { Project } from '@/types/project';
 
 const ProjectListing: React.FC = () => {
-	const projects = getLatestProjectsByNumber(9);
+	const [projects, setProjects] = useState<Project[]>([]);
+	const [isLoading, setIsLoading] = useState(true);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await fetch('/api/projects');
+				const data = await res.json();
+				setProjects(data);
+			} catch (error) {
+				console.error('Error fetching projects:', error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	return (
 		<SimpleGrid m={10} spacing={4} templateColumns="repeat(3, 1fr)">
-			{projects ? (
-				projects.map((project) => (
-					<ProjectCard key={project.id} project={project} />
-				))
-			) : (
+			{isLoading ? (
 				<Flex justify="center" align="center">
 					<Spinner
 						thickness="4px"
@@ -22,6 +35,10 @@ const ProjectListing: React.FC = () => {
 						size="xl"
 					/>
 				</Flex>
+			) : (
+				projects.map((project) => (
+					<ProjectCard key={project.id} project={project} />
+				))
 			)}
 		</SimpleGrid>
 	);

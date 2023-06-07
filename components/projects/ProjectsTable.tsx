@@ -3,7 +3,7 @@ import { Table, Thead, Tbody, Tr, Th, Td, Box, Input } from '@chakra-ui/react';
 import { RiArrowUpLine, RiArrowDownLine } from 'react-icons/ri';
 import Link from 'next/link';
 
-import { Project } from '../../types/project';
+import { Project } from '@/types/project';
 
 type ProjectsTableProps = {
 	projects: Project[];

@@ -1,15 +1,20 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Spinner, Flex } from '@chakra-ui/react';
+
 import ButtonHeroBanner from '@/components/common-ui/ButtonHeroBanner';
 import ProjectsTable from '@/components/projects/ProjectsTable';
 
 import { getBannerImageUrl } from '@/utils/helper';
-import { getLatestProjectsByNumber } from '@/dummy-data/dummy-data.js';
+import { Project } from '@/types/project';
 
 type ProjectsPageProps = {};
 
 const ProjectsPage = (props: ProjectsPageProps) => {
+	const [projects, setProjects] = useState<Project[]>([]);
+	const [isLoading, setIsLoading] = useState(true);
 	const pathname = usePathname();
 
 	const headingText = 'Projects';
@@ -21,7 +26,21 @@ const ProjectsPage = (props: ProjectsPageProps) => {
 		link: 'projects/create',
 	};
 
-	const projects = getLatestProjectsByNumber(10);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await fetch('/api/projects');
+				const data = await res.json();
+				setProjects(data);
+			} catch (error) {
+				console.error('Error fetching projects:', error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	return (
 		<div>
@@ -32,7 +51,19 @@ const ProjectsPage = (props: ProjectsPageProps) => {
 				bannerImageUrl={imageUrl}
 				buttonProp={buttonProp}
 			/>
-			<ProjectsTable projects={projects} />
+			{isLoading ? (
+				<Flex justify="center" align="center" mt={10}>
+					<Spinner
+						thickness="4px"
+						speed="0.65s"
+						emptyColor="gray.200"
+						color="blue.500"
+						size="xl"
+					/>
+				</Flex>
+			) : (
+				<ProjectsTable projects={projects} />
+			)}
 		</div>
 	);
 };
