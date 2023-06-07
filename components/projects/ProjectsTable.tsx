@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Thead, Tbody, Tr, Th, Td, Box, Input } from '@chakra-ui/react';
 import { RiArrowUpLine, RiArrowDownLine } from 'react-icons/ri';
+import Link from 'next/link';
 
 import { Project } from '../../types/project';
 
@@ -13,9 +14,8 @@ const ProjectsTable = ({ projects }: ProjectsTableProps) => {
 		key: keyof Project;
 		direction: 'asc' | 'desc';
 	}>({
-		// @ts-expect-error initial value
-		key: '',
-		direction: 'asc',
+		key: 'createDate',
+		direction: 'desc',
 	});
 
 	const sortedProjects = [...projects].sort((a, b) => {
@@ -56,14 +56,15 @@ const ProjectsTable = ({ projects }: ProjectsTableProps) => {
 
 	return (
 		<Box m={10} border="1px solid #e2e8f0" borderRadius="md">
-			<Table variant="striped" colorScheme="gray">
+			<Table variant="simple">
 				<Thead>
 					<Tr>
 						<Th
 							onClick={() => handleSort('title')}
-							bg="#ffffff"
+							bg="gray.100"
 							color="#4a5568"
-							_hover={{ cursor: 'pointer', bg: '#edf2f7' }}
+							fontSize="16px"
+							_hover={{ cursor: 'pointer', bg: '#e5f5f8' }}
 						>
 							<span
 								style={{
@@ -78,9 +79,10 @@ const ProjectsTable = ({ projects }: ProjectsTableProps) => {
 						</Th>
 						<Th
 							onClick={() => handleSort('description')}
-							bg="#ffffff"
+							bg="gray.100"
 							color="#4a5568"
-							_hover={{ cursor: 'pointer', bg: '#edf2f7' }}
+							fontSize="16px"
+							_hover={{ cursor: 'pointer', bg: '#e5f5f8' }}
 						>
 							<span
 								style={{
@@ -95,9 +97,10 @@ const ProjectsTable = ({ projects }: ProjectsTableProps) => {
 						</Th>
 						<Th
 							onClick={() => handleSort('companyName')}
-							bg="#ffffff"
+							bg="gray.100"
 							color="#4a5568"
-							_hover={{ cursor: 'pointer', bg: '#edf2f7' }}
+							fontSize="16px"
+							_hover={{ cursor: 'pointer', bg: '#e5f5f8' }}
 						>
 							<span
 								style={{
@@ -112,9 +115,13 @@ const ProjectsTable = ({ projects }: ProjectsTableProps) => {
 						</Th>
 						<Th
 							onClick={() => handleSort('createDate')}
-							bg="#ffffff"
+							bg="gray.100"
 							color="#4a5568"
-							_hover={{ cursor: 'pointer', bg: '#edf2f7' }}
+							fontSize="16px"
+							_hover={{
+								cursor: 'pointer',
+								bg: '#e5f5f8',
+							}}
 						>
 							<span
 								style={{
@@ -131,8 +138,20 @@ const ProjectsTable = ({ projects }: ProjectsTableProps) => {
 				</Thead>
 				<Tbody>
 					{sortedProjects.map((project) => (
-						<Tr key={project.id}>
-							<Td>{project.title}</Td>
+						<Tr
+							key={project.id}
+							_hover={{
+								bg: '#f7f9fc',
+							}}
+						>
+							<Td>
+								<Link
+									href={`/projects/${project.id}`}
+									style={{ color: '#0091ae' }}
+								>
+									{project.title}
+								</Link>
+							</Td>
 							<Td>{project.description}</Td>
 							<Td>{project.companyName}</Td>
 							<Td>{project.createDate}</Td>

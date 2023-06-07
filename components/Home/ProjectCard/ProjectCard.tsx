@@ -71,7 +71,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 					</Link>
 				</CardFooter>
 			</Flex>
-			<Box bg="gray.100" width="20%" height="100%" />
 		</Card>
 	);
 };

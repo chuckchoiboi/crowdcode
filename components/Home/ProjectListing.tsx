@@ -4,10 +4,10 @@ import { getLatestProjectsByNumber } from '../../dummy-data/dummy-data';
 import ProjectCard from './ProjectCard/ProjectCard';
 
 const ProjectListing: React.FC = () => {
-	const projects = getLatestProjectsByNumber(5);
+	const projects = getLatestProjectsByNumber(9);
 
 	return (
-		<SimpleGrid m={10} spacing={4} templateColumns="repeat(auto-fill)">
+		<SimpleGrid m={10} spacing={4} templateColumns="repeat(3, 1fr)">
 			{projects ? (
 				projects.map((project) => (
 					<ProjectCard key={project.id} project={project} />
