@@ -139,14 +139,14 @@ const ProjectsTable = ({ projects }: ProjectsTableProps) => {
 				<Tbody>
 					{sortedProjects.map((project) => (
 						<Tr
-							key={project.id}
+							key={project._id}
 							_hover={{
 								bg: '#f7f9fc',
 							}}
 						>
 							<Td>
 								<Link
-									href={`/projects/${project.id}`}
+									href={`/projects/${project._id}`}
 									style={{ color: '#0091ae' }}
 								>
 									{project.title}

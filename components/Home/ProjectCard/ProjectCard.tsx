@@ -1,6 +1,7 @@
+import Link from 'next/link';
+
 import {
 	Flex,
-	Box,
 	Card,
 	CardHeader,
 	CardBody,
@@ -11,17 +12,8 @@ import {
 } from '@chakra-ui/react';
 import TechStackButton from './TechStackButton';
 import ProductAreaButton from './ProductAreaButton';
-import Link from 'next/link';
 
-interface Project {
-	id: string;
-	title: string;
-	description: string;
-	createDate: string;
-	techStacks: string[];
-	productArea: string[];
-	companyName: string;
-}
+import { Project } from '@/types/project';
 
 interface ProjectCardProps {
 	project: Project;
@@ -29,7 +21,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 	return (
-		<Card key={project.id}>
+		<Card key={project._id}>
 			<Flex direction="column" height="100%">
 				<CardHeader
 					display="flex"
@@ -64,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 					</Flex>
 				</CardBody>
 				<CardFooter>
-					<Link href={`/projects/${project.id}`}>
+					<Link href={`/projects/${project._id}`}>
 						<Button colorScheme="blue" size="sm">
 							View here
 						</Button>

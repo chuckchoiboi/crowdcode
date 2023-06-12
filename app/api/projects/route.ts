@@ -1,32 +1,29 @@
 import { NextResponse } from 'next/server';
-import { Project } from '@/types/project';
+// import { Project } from '@/types/project';
+import { MongoClient } from 'mongodb';
 
 export async function GET(req: Request) {
-	const res = await fetch(`${process.env.CROWD_CODE_API_URL}/projects/.json`);
+	let client;
 
-	const data = await res.json();
+	try {
+		client = await MongoClient.connect(process.env.MONGODB_URL as string);
+	} catch (error) {
+		return NextResponse.json({
+			error: 'Could not connect to the database.',
+		});
+	}
 
-	const result = Object.entries(data).map(([id, projectData]) => {
-		const parsedData: Project = {
-			id,
-			...projectData,
-			productArea: parseStringArray(projectData.productArea),
-			techStacks: parseStringArray(projectData.techStacks),
-		};
+	const db = client.db();
 
-		return parsedData;
-	});
+	let projects;
 
-	return NextResponse.json(result);
-}
+	try {
+		projects = await db.collection('projects').find().toArray();
+	} catch (error) {
+		client.close();
+		return NextResponse.json({ error: 'Fetching projects failed!' });
+	}
 
-function parseStringArray(str: string): string[] {
-	// Assuming the string is in the format "['item1', 'item2', ...]"
-	const trimmed = str.trim();
-	const withoutQuotes = trimmed.substring(1, trimmed.length - 1);
-	const items = withoutQuotes
-		.split(',')
-		.map((item) => item.trim().slice(1, -1));
-
-	return items;
+	client.close();
+	return NextResponse.json(projects);
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+
 import { Flex, Link } from '@chakra-ui/react';
 
 const MainNavigation = () => {
@@ -31,7 +33,12 @@ const MainNavigation = () => {
 					Requests
 				</Link>
 				<Link href="#" opacity={0.75} _hover={{ opacity: 1 }}>
-					Profile
+					<Image
+						src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+						alt="Google"
+						width="25"
+						height="25"
+					/>
 				</Link>
 			</Flex>
 		</Flex>
