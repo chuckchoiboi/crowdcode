@@ -32,7 +32,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 						{project.title}
 					</Heading>
 					<Flex direction="column" alignItems="flex-end">
-						<Text fontSize="lg" fontWeight="bold" color="gray.700">
+						<Text fontSize="md" fontWeight="bold" color="gray.700">
 							{project.companyName}{' '}
 						</Text>
 						<Text fontSize="sm" color="gray.500">

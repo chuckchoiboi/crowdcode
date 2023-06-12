@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-// import { Project } from '@/types/project';
 import { MongoClient } from 'mongodb';
 
 export async function GET(req: Request) {

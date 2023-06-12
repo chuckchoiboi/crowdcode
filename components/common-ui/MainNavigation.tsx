@@ -25,14 +25,10 @@ const MainNavigation = () => {
 					Projects
 				</Link>
 				<Link
-					href="/requests"
-					mr={4}
+					href="/api/auth/signin"
 					opacity={0.75}
 					_hover={{ opacity: 1 }}
 				>
-					Requests
-				</Link>
-				<Link href="#" opacity={0.75} _hover={{ opacity: 1 }}>
 					<Image
 						src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
 						alt="Google"

@@ -27,9 +27,9 @@ const ProjectListing: React.FC = () => {
 	}, []);
 
 	return (
-		<SimpleGrid m={10} spacing={4} templateColumns="repeat(3, 1fr)">
+		<>
 			{isLoading ? (
-				<Flex justify="center" align="center">
+				<Flex justify="center" align="center" m={10}>
 					<Spinner
 						thickness="4px"
 						speed="0.65s"
@@ -39,11 +39,13 @@ const ProjectListing: React.FC = () => {
 					/>
 				</Flex>
 			) : (
-				projects.map((project) => (
-					<ProjectCard key={project._id} project={project} />
-				))
+				<SimpleGrid m={10} spacing={4} templateColumns="repeat(3, 1fr)">
+					{projects.map((project) => (
+						<ProjectCard key={project._id} project={project} />
+					))}
+				</SimpleGrid>
 			)}
-		</SimpleGrid>
+		</>
 	);
 };
 
